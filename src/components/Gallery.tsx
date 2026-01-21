@@ -1,7 +1,13 @@
 import Card from './Card'
-import { mockCards } from '@/app/lib/mockdata'
+import mockCards, { type CardItem } from '../app/lib/mockdata'
 
-export default function Gallery() {
+type GalleryProps = {
+  cards?: CardItem[]
+}
+
+export default function Gallery({ cards }: GalleryProps) {
+  const items = cards ?? mockCards
+
   return (
     <section id="konst" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,10 +19,10 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mockCards.map((card) => (
+          {items.map((card) => (
             <Card
               key={card.id}
-              img={card.img}
+              img={card.src}
               title={card.title}
               description={card.description}
               price={card.price}
