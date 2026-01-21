@@ -271,7 +271,7 @@ export const mockCards: CardItem[] = categories.flatMap((cat) =>
     title: art.title,
     description: `${art.size} • ${art.technique}`,
     sold: !!art.sold,
-    // Returnera null när pris saknas. UI-komponenten kan visa "Kontakta" eller tomt baserat på detta.
+    // Returnera null när pris saknas. UI-komponenten visar antingen pris eller "SÅLD".
     price: art.sold
       ? "SÅLD"
       : art.price === null

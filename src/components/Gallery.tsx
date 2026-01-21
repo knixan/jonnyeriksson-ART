@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Card from './Card'
-import ImageModal from './ImageModal'
-import mockCards, { type CardItem } from '../app/lib/mockdata'
+import { useState } from "react";
+import Card from "./Card";
+import ImageModal from "./ImageModal";
+import mockCards, { type CardItem } from "../app/lib/mockdata";
 
 type GalleryProps = {
-  cards?: CardItem[]
-}
+  artworks?: CardItem[];
+};
 
-export default function Gallery({ cards }: GalleryProps) {
-  const items = cards ?? mockCards
-  const [selectedCard, setSelectedCard] = useState<CardItem | null>(null)
+export default function Gallery({ artworks }: GalleryProps) {
+  const items = artworks ?? mockCards;
+  const [selectedCard, setSelectedCard] = useState<CardItem | null>(null);
 
   return (
     <>
-      <section id="konst" className="py-20 bg-white">
+      <section id="konstverk" className="py-20 bg-white" aria-label="Konstgalleri">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-playfair text-black text-4xl lg:text-5xl font-bold mb-6">
-              Konst
+              Konstverk
             </h2>
             <div className="w-24 h-0.5 bg-black mx-auto"></div>
           </div>
@@ -40,15 +40,17 @@ export default function Gallery({ cards }: GalleryProps) {
         </div>
       </section>
 
-      <ImageModal
-        isOpen={!!selectedCard}
-        imageSrc={selectedCard?.src || ''}
-        title={selectedCard?.title || ''}
-        description={selectedCard?.description}
-        price={selectedCard?.price}
-        sold={selectedCard?.sold}
-        onClose={() => setSelectedCard(null)}
-      />
+      {selectedCard && (
+        <ImageModal
+          isOpen={true}
+          imageSrc={selectedCard.src}
+          title={selectedCard.title}
+          description={selectedCard.description}
+          price={selectedCard.price}
+          sold={selectedCard.sold}
+          onClose={() => setSelectedCard(null)}
+        />
+      )}
     </>
-  )
+  );
 }

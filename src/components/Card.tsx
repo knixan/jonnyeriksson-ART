@@ -17,13 +17,17 @@ export default function Card({
   sold,
   onClick,
 }: CardProps) {
+  // Validera att img inte är tom
+  const imageSrc = img && img.trim() !== "" ? img : "/placeholder.jpg";
+
   return (
     <div className="group cursor-pointer" onClick={onClick}>
       <div className="aspect-square text-black bg-gray-100 mb-4 overflow-hidden relative">
         <Image
-          src={img}
-          alt={title}
+          src={imageSrc}
+          alt={`${title} - Konstverk av Jonny Eriksson`}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform"
         />
       </div>
@@ -34,10 +38,8 @@ export default function Card({
       <div className="mt-3 text-sm">
         {sold ? (
           <span className="font-semibold text-red-600">SÅLD</span>
-        ) : price === null || price === undefined ? (
-          <span className="font-medium text-black">Kontakta</span>
         ) : (
-          <span className="font-medium text-black">{price}</span>
+          <span className="font-medium text-black">{price ?? ""}</span>
         )}
       </div>
     </div>
