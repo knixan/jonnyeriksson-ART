@@ -23,16 +23,12 @@ export default function ImageModal({
   onClose,
 }: ImageModalProps) {
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
-    };
+    if (!isOpen) return;
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
-    }
+    const handleEscape = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    
+    document.addEventListener("keydown", handleEscape);
+    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
@@ -42,9 +38,15 @@ export default function ImageModal({
 
   if (!isOpen) return null;
 
+  const getPriceText = () => {
+    if (sold) return "SÅLD";
+    if (price == null) return "Kontakta för pris";
+    return price;
+  };
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
       onClick={onClose}
     >
       <button
@@ -70,22 +72,14 @@ export default function ImageModal({
           />
         </div>
 
-        <div className="bg-white rounded-lg p-6  text-black max-w-2xl w-full text-center">
+        <div className="bg-white rounded-lg p-6 text-black max-w-2xl w-full text-center">
           <h3 className="font-playfair text-2xl font-medium mb-2">{title}</h3>
           {description && (
             <p className="text-gray-600 text-sm mb-3 font-light">
               {description}
             </p>
           )}
-          <div className="text-base">
-            {sold ? (
-              <span className="font-semibold">SÅLD</span>
-            ) : price === null || price === undefined ? (
-              <span className="font-medium">Kontakta för pris</span>
-            ) : (
-              <span className="font-medium">{price}</span>
-            )}
-          </div>
+          <div className="text-base font-medium">{getPriceText()}</div>
         </div>
       </div>
     </div>
