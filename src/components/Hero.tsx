@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="hem" className="pt-16 min-h-screen flex items-center relative">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://cdn.konst.se/bakgrunder/2000/31410016.jpg"
+          src="/hero.png"
           alt="Bakgrundsbild"
           fill
           className="w-full h-full object-cover"
@@ -15,9 +15,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-white/80"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center text-black">
           <div>
-            <h1 className="font-playfair text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className=" font-playfair text-5xl lg:text-7xl font-bold mb-6 leading-tight">
               Konst som<br />
               <span className="italic">berör själen</span>
             </h1>
@@ -34,7 +34,7 @@ export default function Hero() {
           <div className="relative">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
               <Image
-                src="https://cdn.konst.se/avatarer/400/31414526.jpg"
+                src="/jonnyeriksson.png"
                 alt="Jonny Eriksson - Konstnär"
                 fill
                 className="w-full h-full object-cover"
