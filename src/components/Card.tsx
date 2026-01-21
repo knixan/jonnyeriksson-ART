@@ -30,14 +30,14 @@ export default function Card({
       <h3 className="font-playfair text-black text-xl font-medium mb-2">
         {title}
       </h3>
-      <p className="text- text-sm mb-3 font-light">{description}</p>
+      <p className="text-black text-sm mb-3 font-light">{description}</p>
       <div className="mt-3 text-sm">
         {sold ? (
-          <span className="font-semibold">SÅLD</span>
+          <span className="font-semibold text-red-600">SÅLD</span>
         ) : price === null || price === undefined ? (
-          <span className="font-medium">Kontakta</span>
+          <span className="font-medium text-black">Kontakta</span>
         ) : (
-          <span className="font-medium">{price}</span>
+          <span className="font-medium text-black">{price}</span>
         )}
       </div>
     </div>
