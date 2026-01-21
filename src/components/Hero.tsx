@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -18,11 +18,13 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center text-black">
           <div>
             <h1 className=" font-playfair text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Konst som<br />
+              Konst som
+              <br />
               <span className="italic">berör själen</span>
             </h1>
             <p className="text-lg text-gray-700 mb-8 font-light">
-              Välkommen till min värld av canvas-målningar där varje penseldrag berättar en historia och varje färg väcker känslor.
+              Välkommen till min värld av canvas-målningar där varje penseldrag
+              berättar en historia och varje färg väcker känslor.
             </p>
             <a
               href="#konst"
@@ -44,5 +46,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
