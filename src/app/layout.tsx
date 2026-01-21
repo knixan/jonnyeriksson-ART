@@ -100,6 +100,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="sv" className={`${spaceGrotesk.className} ${playfair.className}`}>
       <head>
         <StructuredData />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="bg-white text-black">
         <Navigation />
