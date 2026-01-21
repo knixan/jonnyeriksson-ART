@@ -7,12 +7,43 @@ En liten Next.js-app som visar konstverk som kort (Card) med mockdata. Byggd med
 - Mockdata för konstverk inklusive titel, storlek, teknik, pris och försäljningsstatus.
 - Responsiv design med Tailwind CSS.
 - Ikoner från react-icons.
+- **SEO-optimerad** för Google, Bing och andra sökmotorer.
 
 ## Teknologier
 - Next.js
 - Tailwind CSS
 - React Icons
 - TypeScript (om applicerat)
+
+## SEO-optimering
+
+Denna webbplats är optimerad för sökmotorer med följande funktioner:
+
+### Metadata
+- **Title & Description**: Optimerade för konstnärsportfölj
+- **Open Graph**: För delning på sociala medier
+- **Twitter Cards**: För Twitter-delning
+- **Structured Data (JSON-LD)**: För bättre förståelse av konstverk för Google
+
+### Tekniska optimeringar
+- **Sitemap.xml**: Automatiskt genererad för alla konstverk
+- **Robots.txt**: Tillåter alla sökmotorer att indexera sidan
+- **Canonical URLs**: Förhindrar duplicerat innehåll
+- **Image optimization**: WebP och AVIF format stöd
+- **Security headers**: X-Frame-Options, X-Content-Type-Options
+
+### Miljövariabler
+Uppdatera `.env.local` med dina riktiga värden:
+```env
+NEXT_PUBLIC_SITE_URL=https://jonnyeriksson-konst.se
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=din-google-verifieringskod
+NEXT_PUBLIC_BING_SITE_VERIFICATION=din-bing-verifieringskod
+```
+
+### Google Search Console & Bing Webmaster Tools
+1. Verifiera ägandeskap med de koder som finns i `.env.local`
+2. Skicka in din sitemap: `https://jonnyeriksson-konst.se/sitemap.xml`
+3. Övervaka indexering och sökprestanda
 
 ## Snabbstart
 
