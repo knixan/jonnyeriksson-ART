@@ -247,6 +247,13 @@ export const categories: Category[] = [
         price: 650,
         src: "https://cdn.konst.se/konstverk/1600/3794500575541.jpg",
       },
+      {
+        title: "TEST TEST",
+        size: "24 x 33 cm",
+        technique: "Akryl",
+        price: 650,
+        src: "https://cdn.konst.se/konstverk/1600/3794500575541.jpg",
+      },
     ],
   },
 ];
